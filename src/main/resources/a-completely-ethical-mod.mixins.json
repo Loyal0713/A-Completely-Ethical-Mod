@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.cem.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityMixin",
+    "PumpkinPlacementMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

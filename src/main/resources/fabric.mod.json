@@ -1,36 +1,26 @@
 {
 	"schemaVersion": 1,
-	"id": "completely-ethical-minecraft",
+	"id": "a-completely-ethical-minecraft",
 	"version": "${version}",
-	"name": "Completely Ethical Minecraft",
+	"name": "A Completely Ethical Mod",
 	"description": "Finally, a way to play Minecraft that your therapist might approve of. Maybe.",
 	"authors": [
 		"Loyal0713"
 	],
 	"contact": {
 		"homepage": "https://joshbrown.us/",
-		"sources": "https://github.com/Loyal0713/Completely-Ethical-Minecraft"
+		"sources": "https://github.com/Loyal0713/A-Completely-Ethical-Mod"
 	},
 	"license": "GNU GPLv3",
-	"icon": "assets/completely-ethical-minecraft/icon.png",
+	"icon": "assets/a-completely-ethical-mod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.cem.CompletelyEthicalMinecraft"
-		],
-		"client": [
-			"com.cem.CompletelyEthicalMinecraftClient"
-		],
-		"fabric-datagen": [
-			"com.cem.CompletelyEthicalMinecraftDataGenerator"
+			"com.cem.ACompletelyEthicalMod"
 		]
 	},
 	"mixins": [
-		"completely-ethical-minecraft.mixins.json",
-		{
-			"config": "completely-ethical-minecraft.client.mixins.json",
-			"environment": "client"
-		}
+		"a-completely-ethical-mod.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",

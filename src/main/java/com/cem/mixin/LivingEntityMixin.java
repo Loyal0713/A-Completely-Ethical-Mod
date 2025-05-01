@@ -19,6 +19,8 @@ public abstract class LivingEntityMixin {
         Entity attacker = damageSource.getEntity();
         Entity directCause = damageSource.getDirectEntity();
 
+        // System.out.printf("Thing getting hurt: %s, Damage Source: %s, Attacker: %s, Direct Cause: %s%n", entity, damageSource, attacker, directCause);
+
         // ignore player checks
         if (entity instanceof ServerPlayer) {
             return;
