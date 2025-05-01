@@ -8,10 +8,10 @@
 		"Loyal0713"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+prop		"homepage": "https://joshbrown.us/",
+		"sources": "https://github.com/Loyal0713/Completely-Ethical-Minecraft"
 	},
-	"license": "CC0-1.0",
+	"license": "GNU GPLv3",
 	"icon": "assets/completely-ethical-minecraft/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -37,8 +37,5 @@
 		"minecraft": "~1.21.5",
 		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
