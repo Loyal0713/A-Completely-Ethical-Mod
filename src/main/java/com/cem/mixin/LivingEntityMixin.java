@@ -20,9 +20,6 @@ public abstract class LivingEntityMixin {
     private void cancelDamage(ServerLevel serverLevel, DamageSource damageSource, float f, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity entity = (LivingEntity) (Object) this; // convert to LivingEntity
         Entity attacker = damageSource.getEntity();
-        Entity directCause = damageSource.getDirectEntity();
-
-        // System.out.printf("Thing getting hurt: %s, Damage Source: %s, Attacker: %s, Direct Cause: %s%n", entity, damageSource, attacker, directCause);
 
         if (entity instanceof ServerPlayer) {
             return;
@@ -33,20 +30,31 @@ public abstract class LivingEntityMixin {
         }
 
         // player directly caused damage
-        if (attacker instanceof ServerPlayer) {
-            cir.setReturnValue(false);
+        if (attacker instanceof ServerPlayer serverPlayerAttacker) {
+
+            // player is in creative mode - allow all damage
+            if (serverPlayerAttacker.isCreative()) {
+                return;
+            }
+
+            if (!damageSource.is(DamageTypes.THORNS)) { // allow thorns damage
+                cir.setReturnValue(false);
+                return;
+            }
         }
 
-        if (attacker == null && directCause == null) {
+        if (attacker == null) {
             // various damage types that could be caused "indirectly" by a player
             // and should be canceled
             if (damageSource.is(DamageTypes.ON_FIRE) ||
                     damageSource.is(DamageTypes.IN_FIRE) ||
+                    damageSource.is(DamageTypes.HOT_FLOOR) ||
                     damageSource.is(DamageTypes.CAMPFIRE) ||
                     damageSource.is(DamageTypes.LAVA) ||
                     damageSource.is(DamageTypes.LIGHTNING_BOLT) ||
                     damageSource.is(DamageTypes.DROWN) ||
                     damageSource.is(DamageTypes.FALL) ||
+                    damageSource.is(DamageTypes.CRAMMING) ||
                     damageSource.is(DamageTypes.IN_WALL) ||
 					damageSource.is(DamageTypes.CACTUS) ||
 					damageSource.is(DamageTypes.SWEET_BERRY_BUSH) ||
